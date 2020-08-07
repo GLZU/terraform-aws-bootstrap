@@ -2,6 +2,7 @@ locals {
    repo_name = "Accoun1-Create"
    git_org = "GLZU"
    tf_hostname = "10.1.199.170"
+   tf_org = "TFOLZU"
 }
 
 provider "tfe" {
@@ -33,7 +34,7 @@ resource "github_repository" "git_repo" {
 
 resource "tfe_workspace" "test" {
   name         = local.repo_name
-  organization = "TFEDemo"
+  organization = local.tf_org
   provider     = tfe.tfe1
   vcs_repo {
      identifier     = "${local.git_org}/${local.repo_name}"
