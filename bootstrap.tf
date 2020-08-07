@@ -1,7 +1,7 @@
 locals {
    repo_name = "Accoun1-Create"
    git_org = "GLZU"
-   lf_hostname = "10.1.199.170"
+   tf_hostname = "10.1.199.170"
 }
 
 provider "tfe" {
