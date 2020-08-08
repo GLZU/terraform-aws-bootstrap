@@ -49,7 +49,7 @@ resource "tfe_workspace" "test" {
   }
 }
 
-
+# Add Variables
 resource "tfe_variable" "test" {
   key          = "my_key_name"
   value        = "my_value_name"
