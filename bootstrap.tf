@@ -56,5 +56,6 @@ resource "tfe_variable" "test" {
   category     = "terraform"
   workspace_id = "${tfe_workspace.test.id}"
   description  = "a useful description"
+  provider     = tfe.tfe1
 }
 
