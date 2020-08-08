@@ -3,6 +3,12 @@ locals {
    git_org = "GLZU"
    tf_hostname = "10.1.199.170"
    tf_org = "TFOLZU"
+   
+   bootstrap_template = {
+      owner = "GLZU"
+      branch = "master"
+      repository = "template-bootstrap-account"
+   }   
 }
 
 provider "tfe" {
@@ -26,10 +32,10 @@ resource "github_repository" "git_repo" {
   provider     = github.github1
 # private = true
 # Valid templates would be Accuont Creation, Guard
-#  template {
-#    owner = "github"
-#    repository = "terraform-module-template"
-#  }
+ template {
+    owner = local.bootstrap_template.owner
+    repository = local.bootstrap_template.repository
+  }
 }
 
 resource "tfe_workspace" "test" {
