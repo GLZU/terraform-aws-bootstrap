@@ -20,6 +20,7 @@ locals {
          tf_org = "TFOLZU"   
          vcs_oauth_token_id = var.vcs_oauth_token_id
      }
+   }
 }
 
 provider "tfe" {
