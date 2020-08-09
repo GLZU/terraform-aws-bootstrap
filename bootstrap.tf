@@ -14,7 +14,7 @@ locals {
             branch = "master"
             repository = "template-bootstrap-account"
          }
-         repo_name = "terraform-aws-${local.account_alias}"
+         target_repo_name = "terraform-aws-${local.account_alias}"
          owner = "GLZU"
       }
       tfe = {
