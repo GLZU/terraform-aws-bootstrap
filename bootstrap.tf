@@ -39,14 +39,24 @@ provider "github" {
   organization = local.params.git.target_git_org  
 }
 
-module create_workspace {
-   source = "github.com/GLZU/terraform-aws-modules.git/LandingZone/mod_workspace"
-   params = local.params
-   providers = {
-      github.github1 = github.github1
-      tfe.tfe1       = tfe.tfe1
-   }
+module "modules" {
+  source  = "10.1.199.170/TFOLZU/modules/aws/LandingZone/mod_workspace"
+  version = "0.1.0"
+  params = local.params
+  providers = {
+     github.github1 = github.github1
+     tfe.tfe1       = tfe.tfe1
+ }   
 }
+
+#module create_workspace {
+#   source = "github.com/GLZU/terraform-aws-modules.git/LandingZone/mod_workspace"
+#   params = local.params
+#   providers = {
+#      github.github1 = github.github1
+#      tfe.tfe1       = tfe.tfe1
+#   }
+#}
 
 /*
 # Add a user to the organization
