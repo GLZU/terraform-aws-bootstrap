@@ -41,7 +41,7 @@ provider "github" {
 
 module "modules" {
   source  = "10.1.199.170/TFOLZU/modules/aws/LandingZone/mod_workspace"
-  version = "0.1.0"
+#  version = "0.1.0"
   params = local.params
   providers = {
      github.github1 = github.github1
