@@ -40,9 +40,9 @@ provider "github" {
 module create_workspace {
    source = "https://github.com/GLZU/terraform-aws-modules/blob/master/LandingZone/mod_workspace/"
    params = local.params
-   providers {
+   providers = {
       github.github1 = github.github1
-      tfe.tfe1 = tfe.tfe1
+      tfe.tfe1       = tfe.tfe1
    }
 }
 
