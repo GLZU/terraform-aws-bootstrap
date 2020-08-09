@@ -38,8 +38,8 @@ module create_workspace {
    source = ""
    params = local.params
    providers {
-      github = github.github1
-      tfe = tfe.tfe1
+      github.github1 = github.github1
+      tfe.tfe1 = tfe.tfe1
    }
 }
 
