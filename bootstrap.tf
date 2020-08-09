@@ -2,16 +2,22 @@
 # 1.   Create Git from the template
 # 1.1  Create workspace with newly created 
 locals {
-   repo_name = "Account1-Create"
-   git_org = "GLZU"
-   tf_hostname = "10.1.199.170"
-   tf_org = "TFOLZU"
+   alias = "Account1-Create"
    
-   bootstrap_template = {
-      owner = "GLZU"
-      branch = "master"
-      repository = "template-bootstrap-account"
-   }  
+   tf_hostname = "10.1.199.170"  
+   params = {
+      git = {
+         bootstrap_template = {
+            owner = "GLZU"
+            git_org = "GLZU"
+            branch = "master"
+            repository = "template-bootstrap-account"
+         }
+      tfe = {
+         tf_workspace_name = ""
+         tf_org = "TFOLZU"   
+         vcs_oauth_token_id = var.vcs_oauth_token_id
+     }
 }
 
 provider "tfe" {
@@ -28,6 +34,16 @@ provider "github" {
   organization = local.git_org  
 }
 
+module create_workspace {
+   source = ""
+   params = local.params
+   providers {
+      github = github.github1
+      tfe = tfe.tfe1
+   }
+}
+
+/*
 # Add a user to the organization
 resource "github_repository" "git_repo" {
   name         = local.repo_name
@@ -62,4 +78,4 @@ resource "tfe_variable" "tfv" {
   description  = "a useful description"
   provider     = tfe.tfe1
 }
-
+*/
