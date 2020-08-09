@@ -40,7 +40,7 @@ provider "github" {
 }
 
 module "modules" {
-  source  = "10.1.199.170/TFOLZU/modules/aws/mod_workspace"
+  source  = "10.1.199.170/TFOLZU/modules/mod_workspace/aws/"
 #  version = "0.1.1"
   params = local.params
   providers = {
