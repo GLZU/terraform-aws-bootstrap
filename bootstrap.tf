@@ -5,6 +5,7 @@ locals {
    account_alias = "Account1-Create"
    
    tf_hostname = "10.1.199.170"  
+   git_org = "GLZU"
    params = {
       git = {
          bootstrap_template = {            
