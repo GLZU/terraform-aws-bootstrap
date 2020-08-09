@@ -12,3 +12,7 @@ variable github_token  {
 variable vcs_oauth_token_id  {
   type = any
 }
+
+variable account_alias  {
+  type = any
+}
