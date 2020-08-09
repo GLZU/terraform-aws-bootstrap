@@ -2,19 +2,21 @@
 # 1.   Create Git from the template
 # 1.1  Create workspace with newly created 
 locals {
-   alias = "Account1-Create"
+   account_alias = "Account1-Create"
    
    tf_hostname = "10.1.199.170"  
    params = {
       git = {
-         bootstrap_template = {
-            owner = "GLZU"
+         bootstrap_template = {            
             git_org = "GLZU"
             branch = "master"
             repository = "template-bootstrap-account"
          }
+         repo_name = "terraform-aws-${local.account_alias}"
+         owner = "GLZU"
+      }
       tfe = {
-         tf_workspace_name = ""
+         tf_workspace_name = "terraform-aws-${local.account_alias}"
          tf_org = "TFOLZU"   
          vcs_oauth_token_id = var.vcs_oauth_token_id
      }
@@ -35,7 +37,7 @@ provider "github" {
 }
 
 module create_workspace {
-   source = ""
+   source = "https://github.com/GLZU/terraform-aws-modules/blob/master/LandingZone/mod_workspace/"
    params = local.params
    providers {
       github.github1 = github.github1
