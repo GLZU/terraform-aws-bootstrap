@@ -39,9 +39,10 @@ provider "github" {
   organization = local.params.git.target_git_org  
 }
 
+
 module "modules" {
-  source  = "10.1.199.170/TFOLZU/modules/mod_workspace/aws/"
-#  version = "0.1.1"
+  source  = "10.1.199.170/TFOLZU/setup-account/aws"
+  version = "0.1.3"
   params = local.params
   providers = {
      github.github1 = github.github1
