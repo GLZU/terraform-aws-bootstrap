@@ -9,13 +9,13 @@ locals {
    params = {
       git = {
          target_git_org = "GLZU"
+         target_repo_name = "terraform-aws-${local.account_alias}"
          bootstrap_template = {            
-            git_org = "GLZU"
+            owner = "GLZU"
             branch = "master"
             repository = "template-bootstrap-account"
          }
-         target_repo_name = "terraform-aws-${local.account_alias}"
-         owner = "GLZU"
+                  
       }
       tfe = {
          tf_workspace_name = "terraform-aws-${local.account_alias}"
