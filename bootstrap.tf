@@ -2,7 +2,7 @@
 # 1.   Create Git from the template
 # 1.1  Create workspace with newly created 
 locals {
-   account_alias = "Account1-Create"
+   account_alias = "Account2-Create"
    
    tf_hostname = "10.1.199.170"  
    
