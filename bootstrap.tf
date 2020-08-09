@@ -1,5 +1,8 @@
+# Module to create workspace
+# 1.   Create Git from the template
+# 1.1  Create workspace with newly created 
 locals {
-   repo_name = "Accoun1-Create"
+   repo_name = "Account1-Create"
    git_org = "GLZU"
    tf_hostname = "10.1.199.170"
    tf_org = "TFOLZU"
@@ -8,7 +11,7 @@ locals {
       owner = "GLZU"
       branch = "master"
       repository = "template-bootstrap-account"
-   }   
+   }  
 }
 
 provider "tfe" {
@@ -38,7 +41,7 @@ resource "github_repository" "git_repo" {
   }
 }
 
-resource "tfe_workspace" "test" {
+resource "tfe_workspace" "ws" {
   name         = local.repo_name
   organization = local.tf_org
   provider     = tfe.tfe1
@@ -47,14 +50,15 @@ resource "tfe_workspace" "test" {
 #     branch         = local.repo_name
      oauth_token_id = var.vcs_oauth_token_id
   }
+  depends_on = ["github_repository.git_repo"]
 }
 
 # Add Variables
-resource "tfe_variable" "test" {
+resource "tfe_variable" "tfv" {
   key          = "my_key_name"
   value        = "my_value_name"
   category     = "terraform"
-  workspace_id = tfe_workspace.test.id
+  workspace_id = tfe_workspace.ws.id
   description  = "a useful description"
   provider     = tfe.tfe1
 }
