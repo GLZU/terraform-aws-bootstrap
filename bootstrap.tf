@@ -5,9 +5,10 @@ locals {
    account_alias = "Account1-Create"
    
    tf_hostname = "10.1.199.170"  
-   git_org = "GLZU"
+   
    params = {
       git = {
+         target_git_org = "GLZU"
          bootstrap_template = {            
             git_org = "GLZU"
             branch = "master"
@@ -35,7 +36,7 @@ provider "tfe" {
 provider "github" {
   alias        = "github1"
   token        = var.github_token
-  organization = local.git_org  
+  organization = local.params.git.target_git_org  
 }
 
 module create_workspace {
