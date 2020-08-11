@@ -29,7 +29,7 @@ locals {
                   tf_org = local.tfe_target_org    
                   git_path = "guardrail/"
                   vcs_oauth_token_id = var.vcs_oauth_token_id
-               }
+               },
                {
                   tf_workspace_name = "terraform-aws-${local.account_alias}-regional"
                   tf_org = local.tfe_target_org
