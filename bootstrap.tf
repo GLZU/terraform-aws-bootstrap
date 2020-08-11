@@ -5,7 +5,7 @@ locals {
    account_alias = var.account_alias
    
    tf_hostname = "10.1.199.170"  
-   
+   tfe_target_org  = "TFOLZU" 
    params = {
          git = {
             target_git_org = "GLZU"
@@ -20,9 +20,22 @@ locals {
             workspaces = [
                {
                   tf_workspace_name = "terraform-aws-${local.account_alias}-account"
-                  tf_org = "TFOLZU"            
+                  tf_org = local.tfe_target_org
+                  git_path = "account/"
+                  vcs_oauth_token_id = var.vcs_oauth_token_id
+               },
+               {
+                  tf_workspace_name = "terraform-aws-${local.account_alias}-guardrail"
+                  tf_org = local.tfe_target_org    
+                  git_path = "guardrail/"
                   vcs_oauth_token_id = var.vcs_oauth_token_id
                }
+               {
+                  tf_workspace_name = "terraform-aws-${local.account_alias}-regional"
+                  tf_org = local.tfe_target_org
+                  git_path = "regional/"
+                  vcs_oauth_token_id = var.vcs_oauth_token_id
+               }               
             ]
         }
    }
