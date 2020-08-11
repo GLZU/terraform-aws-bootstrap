@@ -7,21 +7,24 @@ locals {
    tf_hostname = "10.1.199.170"  
    
    params = {
-      git = {
-         target_git_org = "GLZU"
-         target_repo_name = "terraform-aws-${local.account_alias}"
-         bootstrap_template = {            
-            owner = "GLZU"
-            branch = "master"
-            repository = "template-bootstrap-account"
+         git = {
+            target_git_org = "GLZU"
+            target_repo_name = "terraform-aws-${local.account_alias}"
+            bootstrap_template = {            
+               owner = "GLZU"
+               branch = "master"
+               repository = "template-bootstrap-account"
+            }
          }
-                  
-      }
-      tfe = {
-         tf_workspace_name = "terraform-aws-${local.account_alias}"
-         tf_org = "TFOLZU"   
-         vcs_oauth_token_id = var.vcs_oauth_token_id
-     }
+         tfe = {
+            workspaces[
+               {
+                  tf_workspace_name = "terraform-aws-${local.account_alias}-account"
+                  tf_org = "TFOLZU"            
+                  vcs_oauth_token_id = var.vcs_oauth_token_id
+               }
+            ]
+        }
    }
 }
 
