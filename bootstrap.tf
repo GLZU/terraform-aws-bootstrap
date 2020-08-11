@@ -17,7 +17,7 @@ locals {
             }
          }
          tfe = {
-            workspaces[
+            workspaces = [
                {
                   tf_workspace_name = "terraform-aws-${local.account_alias}-account"
                   tf_org = "TFOLZU"            
