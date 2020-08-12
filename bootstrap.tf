@@ -6,7 +6,7 @@ locals {
    
    tf_hostname = "10.1.199.170"  
    tfe_target_org  = "TFOLZU" 
-   params = var.params
+   #params = var.params
    
    params = {
          git = {
