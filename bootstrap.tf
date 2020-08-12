@@ -55,7 +55,7 @@ provider "github" {
   organization = local.params.git.target_git_org  
 }
 
-
+/*
 module "modules" {
   source  = "10.1.199.170/TFOLZU/build-account/aws"
   version = "0.1.3"
@@ -64,13 +64,13 @@ module "modules" {
      github.github1 = github.github1
      tfe.tfe1       = tfe.tfe1
  }   
-}
+}*/
 
-#module create_workspace {
-#   source = "github.com/GLZU/terraform-aws-modules.git/LandingZone/mod_workspace"
-#   params = local.params
-#   providers = {
-#      github.github1 = github.github1
-#      tfe.tfe1       = tfe.tfe1
-#   }
-#}
+module create_workspace {
+   source = "github.com/GLZU/terraform-aws-build-account"
+   params = local.params
+   providers = {
+      github.github1 = github.github1
+      tfe.tfe1       = tfe.tfe1
+   }
+}
