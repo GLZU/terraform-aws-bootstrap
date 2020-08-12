@@ -66,7 +66,7 @@ module "modules" {
  }   
 }*/
 
-module create_workspace {
+module setup_account {
    source = "github.com/GLZU/terraform-aws-build-account"
    params = local.params
    providers = {
