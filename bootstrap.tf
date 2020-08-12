@@ -57,7 +57,7 @@ provider "github" {
 
 
 module "modules" {
-  source  = "10.1.199.170/TFOLZU/setup-account/aws"
+  source  = "10.1.199.170/TFOLZU/build-account/aws"
   version = "0.1.4"
   params = local.params
   providers = {
@@ -74,40 +74,3 @@ module "modules" {
 #      tfe.tfe1       = tfe.tfe1
 #   }
 #}
-
-/*
-# Add a user to the organization
-resource "github_repository" "git_repo" {
-  name         = local.repo_name
-  description  = local.repo_name
-  provider     = github.github1
-# private = true
-# Valid templates would be Accuont Creation, Guard
- template {
-    owner = local.bootstrap_template.owner
-    repository = local.bootstrap_template.repository
-  }
-}
-
-resource "tfe_workspace" "ws" {
-  name         = local.repo_name
-  organization = local.tf_org
-  provider     = tfe.tfe1
-  vcs_repo {
-     identifier     = "${local.git_org}/${local.repo_name}"
-#     branch         = local.repo_name
-     oauth_token_id = var.vcs_oauth_token_id
-  }
-  depends_on = [github_repository.git_repo]
-}
-
-# Add Variables
-resource "tfe_variable" "tfv" {
-  key          = "my_key_name"
-  value        = "my_value_name"
-  category     = "terraform"
-  workspace_id = tfe_workspace.ws.id
-  description  = "a useful description"
-  provider     = tfe.tfe1
-}
-*/
