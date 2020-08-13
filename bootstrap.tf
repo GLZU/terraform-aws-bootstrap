@@ -27,7 +27,7 @@ locals {
                   vcs_oauth_token_id = var.vcs_oauth_token_id
                   variables = [
                      {                        
-                        key			 = "var1"
+                        key			 = "varaccount"
                         value        = "var1 value"
                         category     = "terraform"
                         description  = "Variable description"
@@ -41,7 +41,7 @@ locals {
                   vcs_oauth_token_id = var.vcs_oauth_token_id
                   variables = [
                      {                        
-                        key			 = "var guardrail"
+                        key			 = "varguardrail"
                         value        = "var guardrail value"
                         category     = "terraform"
                         description  = "Variable description guardrail"
@@ -55,7 +55,7 @@ locals {
                   vcs_oauth_token_id = var.vcs_oauth_token_id
                   variables = [
                      {                        
-                        key			 = "var regional"
+                        key			 = "varregional"
                         value        = "var regional value"
                         category     = "terraform"
                         description  = "Variable description regional"
