@@ -25,18 +25,42 @@ locals {
                   tf_org = local.tfe_target_org
                   git_path = "account/"
                   vcs_oauth_token_id = var.vcs_oauth_token_id
+                  variables = [
+                     {                        
+                        key			 = "var1"
+                        value        = "var1 value"
+                        category     = "terraform"
+                        description  = "Variable description"
+                     }
+                  ]
                },
                {
                   tf_workspace_name = "terraform-aws-${local.account_alias}-guardrail"
                   tf_org = local.tfe_target_org    
                   git_path = "guardrails/"
                   vcs_oauth_token_id = var.vcs_oauth_token_id
+                  variables = [
+                     {                        
+                        key			 = "var guardrail"
+                        value        = "var guardrail value"
+                        category     = "terraform"
+                        description  = "Variable description guardrail"
+                     }
+                  ]                  
                },
                {
                   tf_workspace_name = "terraform-aws-${local.account_alias}-regional"
                   tf_org = local.tfe_target_org
                   git_path = "regional/"
                   vcs_oauth_token_id = var.vcs_oauth_token_id
+                  variables = [
+                     {                        
+                        key			 = "var regional"
+                        value        = "var regional value"
+                        category     = "terraform"
+                        description  = "Variable description regional"
+                     }
+                  ]                  
                }               
             ]
         }
