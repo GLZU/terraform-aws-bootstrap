@@ -94,7 +94,7 @@ module "modules" {
 }*/
 
 module setup_account {
-   source = "github.com/GLZU/terraform-aws-build-account"
+   source = "github.com/GLZU/terraform-aws-modules/tree/master/modules/LZ/mod_build_account"  # "github.com/GLZU/terraform-aws-build-account"
    params = local.params
    providers = {
       github.github1 = github.github1
