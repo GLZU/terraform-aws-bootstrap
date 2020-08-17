@@ -36,33 +36,34 @@ locals {
                   ]
                },
                {
-                  tf_workspace_name = "terraform-aws-${local.account_alias}-guardrail"
+                  tf_workspace_name = "terraform-aws-${local.account_alias}-furniture"
                   tf_org = local.tfe_target_org    
-                  git_path = "guardrails/"
+                  git_path = "furniture/"
                   vcs_oauth_token_id = var.vcs_oauth_token_id
                   variables = [
                      {                        
-                        key			 = "varguardrail"
-                        value        = "var guardrail value"
+                        key			 = "varfurniture"
+                        value        = "var furniture value"
                         category     = "terraform"
-                        description  = "Variable description guardrail"
+                        description  = "Variable description furniture"
                      }
                   ]                  
-               },
-               {
-                  tf_workspace_name = "terraform-aws-${local.account_alias}-regional"
-                  tf_org = local.tfe_target_org
-                  git_path = "regional/"
-                  vcs_oauth_token_id = var.vcs_oauth_token_id
-                  variables = [
-                     {                        
-                        key			 = "varregional"
-                        value        = "var regional value"
-                        category     = "terraform"
-                        description  = "Variable description regional"
-                     }
-                  ]                  
-               }               
+               }
+#               ,
+#               {
+#                  tf_workspace_name = "terraform-aws-${local.account_alias}-regional"
+#                  tf_org = local.tfe_target_org
+#                  git_path = "regional/"
+#                  vcs_oauth_token_id = var.vcs_oauth_token_id
+#                  variables = [
+#                     {                        
+#                        key			 = "varregional"
+#                        value        = "var regional value"
+#                        category     = "terraform"
+#                        description  = "Variable description regional"
+#                     }
+#                  ]                  
+#               }               
             ]
         }
    }
