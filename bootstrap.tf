@@ -9,6 +9,7 @@ locals {
    #params = var.params
    
    params = {
+         schema_ver = "1.1.1"
          git = {
             target_git_org = "GLZU"
             target_repo_name = "terraform-aws-${local.account_alias}"
